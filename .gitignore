@@ -1,0 +1,12 @@
+# Created by .ignore support plugin (hsz.mobi)
+*.iml
+*/target
+*/*.iml
+.idea/
+*/.idea/
+将删除 .gitignore
+将删除 .idea/
+将删除 pom.xml
+将删除 taotao-common/
+将删除 taotao-manager-web/
+将删除 taotao-manager/

@@ -1,0 +1,11 @@
+pub/guoxin/taotao/mapper/TbOrderShippingMapper.class
+pub/guoxin/taotao/mapper/TbUserMapper.class
+pub/guoxin/taotao/mapper/TbItemCatMapper.class
+pub/guoxin/taotao/mapper/TbOrderMapper.class
+pub/guoxin/taotao/mapper/TbOrderItemMapper.class
+pub/guoxin/taotao/mapper/TbItemDescMapper.class
+pub/guoxin/taotao/mapper/TbItemParamItemMapper.class
+pub/guoxin/taotao/mapper/TbContentCategoryMapper.class
+pub/guoxin/taotao/mapper/TbItemParamMapper.class
+pub/guoxin/taotao/mapper/TbItemMapper.class
+pub/guoxin/taotao/mapper/TbContentMapper.class

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+    <!-- 配置注解驱动 -->
+    <mvc:annotation-driven/>
+    <!-- 视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    <!-- 配置包扫描器，扫描@Controller注解的类 -->
+    <context:component-scan base-package="pub.guoxin.taotao.controller"/>
+    <!-- 配置资源映射 -->
+    <mvc:resources location="/css/" mapping="/css/**"/>
+    <mvc:resources location="/js/" mapping="/js/**"/>
+    <!-- 引用dubbo服务 -->
+    <dubbo:application name="taotao-manager-web"/>
+    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
+    <!--1、关闭某个服务的启动时检查：(没有提供者时报错)-->
+    <dubbo:reference id="itemService" interface="pub.guoxin.taotao.service.ItemService"/>
+
+    <!--&lt;!&ndash;2、关闭所有服务的启动时检查：(没有提供者时报错)  写在定义服务消费者一方&ndash;&gt;-->
+    <!--<dubbo:consumer check="false" />-->
+
+    <!--&lt;!&ndash;3、关闭注册中心启动时检查：(注册订阅失败时报错)&ndash;&gt;-->
+    <!--<dubbo:registry check="false" />-->
+</beans>
